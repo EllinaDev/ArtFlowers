@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Artflowers App</string>
+    <string name="st_new">new</string>
+    <string name="st_trend">trend</string>
+</resources>

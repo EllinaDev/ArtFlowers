@@ -6,15 +6,15 @@ import com.example.artflowersapp.data.ArtModel
 object FakeData {
 
     val flowers: List<ArtModel> = listOf(
-        ArtModel(1, "rose", price = 1500, photo = R.drawable.flower),
-        ArtModel(2,"pion",price = 2000, photo = R.drawable.flower_two),
-        ArtModel(3,"rose",price = 35000, photo = R.drawable.flower_two),
-        ArtModel(4,"pion",price = 4000, photo = R.drawable.flower),
-        ArtModel(5,"pion",price = 2000, photo = R.drawable.flower_two),
-        ArtModel(6,"rose",price = 2000, photo = R.drawable.flower_two),
-        ArtModel(7,"pion",price = 2400, photo = R.drawable.flower),
-        ArtModel(8,"pion",price = 9000, photo = R.drawable.flower_two),
-        ArtModel(9,"rose",price = 6000, photo = R.drawable.flower),
-        ArtModel(10,"pion",price = 2000, photo = R.drawable.flower_two)
+        ArtModel(1, "white rose", price = 1500, composition = "5 кремовых роз, 3 ветки нежной эустомы,\\n5 веток кустовой розы, альстромерии, зелень, оформление может отличаться.",description = "Чарующий и необычайно нежный букет навеет романтическое настроение и подарит незабываемые впечатления! " , photo = R.drawable.flower),
+        ArtModel(2,"5 pion",price = 2000, composition = "5 кремовых роз, 3 ветки нежной эустомы,\\n5 веток кустовой розы, альстромерии, зелень, оформление может отличаться.",description = "Чарующий и необычайно нежный букет навеет романтическое настроение и подарит незабываемые впечатления! " , photo = R.drawable.flower_two),
+        ArtModel(3,"red rose",price = 35000, composition = "5 кремовых роз, 3 ветки нежной эустомы,\\n5 веток кустовой розы, альстромерии, зелень, оформление может отличаться.",description = "Чарующий и необычайно нежный букет навеет романтическое настроение и подарит незабываемые впечатления! " , photo = R.drawable.flower_two),
+        ArtModel(4,"pion",price = 4000, composition = "5 кремовых роз, 3 ветки нежной эустомы,\\n5 веток кустовой розы, альстромерии, зелень, оформление может отличаться.",description = "Чарующий и необычайно нежный букет навеет романтическое настроение и подарит незабываемые впечатления! " , photo = R.drawable.flower),
+        ArtModel(5,"blue pion",price = 2000, composition = "5 кремовых роз, 3 ветки нежной эустомы,\\n5 веток кустовой розы, альстромерии, зелень, оформление может отличаться.",description = "Чарующий и необычайно нежный букет навеет романтическое настроение и подарит незабываемые впечатления! " , photo = R.drawable.flower_two),
+        ArtModel(6,"101 roses",price = 2000, composition = "5 кремовых роз, 3 ветки нежной эустомы,\\n5 веток кустовой розы, альстромерии, зелень, оформление может отличаться.",description = "Чарующий и необычайно нежный букет навеет романтическое настроение и подарит незабываемые впечатления! " , photo = R.drawable.flower_two),
+        ArtModel(7,"pion",price = 2400, composition = "5 кремовых роз, 3 ветки нежной эустомы,\\n5 веток кустовой розы, альстромерии, зелень, оформление может отличаться.",description = "Чарующий и необычайно нежный букет навеет романтическое настроение и подарит незабываемые впечатления! " , photo = R.drawable.flower),
+        ArtModel(8,"spring mix",price = 9000, composition = "5 кремовых роз, 3 ветки нежной эустомы,\\n5 веток кустовой розы, альстромерии, зелень, оформление может отличаться.",description = "Чарующий и необычайно нежный букет навеет романтическое настроение и подарит незабываемые впечатления! " , photo = R.drawable.flower_two),
+        ArtModel(9,"rose",price = 6000, composition = "5 кремовых роз, 3 ветки нежной эустомы,\\n5 веток кустовой розы, альстромерии, зелень, оформление может отличаться.",description = "Чарующий и необычайно нежный букет навеет романтическое настроение и подарит незабываемые впечатления! " , photo = R.drawable.flower),
+        ArtModel(10,"pion",price = 2000, composition = "5 кремовых роз, 3 ветки нежной эустомы,\\n5 веток кустовой розы, альстромерии, зелень, оформление может отличаться.",description = "Чарующий и необычайно нежный букет навеет романтическое настроение и подарит незабываемые впечатления! " , photo = R.drawable.flower_two)
     )
 }

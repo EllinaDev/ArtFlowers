@@ -2,19 +2,61 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/basketFragment">
+    app:startDestination="@id/homeFragment">
 
 
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.artflowersapp.ui.HomeFragment"
-        android:label="HomeFragment" />
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_detailFragment"
+            app:destination="@id/detailFragment">
+            <argument
+                android:name="flower"
+                app:argType="com.example.artflowersapp.data.ArtModel"
+                app:nullable="true" />
+        </action>
+    </fragment>
     <fragment
         android:id="@+id/basketFragment"
         android:name="com.example.artflowersapp.ui.BasketFragment"
-        android:label="BasketFragment" />
+        android:label="BasketFragment" >
+        <action
+            android:id="@+id/action_basketFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/personFragment"
         android:name="com.example.artflowersapp.ui.PersonFragment"
         android:label="PersonFragment" />
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.artflowersapp.ui.DetailFragment"
+        android:label="DetailFragment" >
+        <argument
+            android:name="flower"
+            app:argType="com.example.artflowersapp.data.ArtModel"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/languageFragment"
+        android:name="com.example.artflowersapp.ui.LanguageFragment"
+        android:label="LanguageFragment" />
+    <fragment
+        android:id="@+id/currencyFragment"
+        android:name="com.example.artflowersapp.ui.CurrencyFragment"
+        android:label="CurrencyFragment" />
+    <fragment
+        android:id="@+id/themaFragment"
+        android:name="com.example.artflowersapp.ui.ThemaFragment"
+        android:label="ThemaFragment" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.artflowersapp.ui.SearchFragment"
+        android:label="SearchFragment" />
+    <fragment
+        android:id="@+id/setNewItemFragment"
+        android:name="com.example.artflowersapp.ui.SetNewItemFragment"
+        android:label="SetNewItemFragment" />
 </navigation>

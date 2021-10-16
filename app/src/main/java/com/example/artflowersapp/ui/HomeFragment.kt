@@ -4,24 +4,24 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Adapter
+import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.recyclerview.widget.GridLayoutManager
-import com.example.artflowersapp.adapter.ArtRecyclerView
+import androidx.navigation.fragment.findNavController
+import com.example.artflowersapp.R
+import com.example.artflowersapp.adapter.HomeAdapter
 import com.example.artflowersapp.data.ArtModel
 import com.example.artflowersapp.databinding.FragmentHomeBinding
-import com.example.artflowersapp.repository.ArtRepository
 import com.example.artflowersapp.utils.FakeData
 import com.example.artflowersapp.viewModel.ArtViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HomeFragment : Fragment(){
+class HomeFragment : Fragment(), HomeAdapter.FlowerListener, HomeAdapter.FlowerBasketListener {
     private var _binding: FragmentHomeBinding? = null
     private val binding: FragmentHomeBinding get() = _binding!!
     private val viewModel: ArtViewModel by viewModels()
-    private val adapter: ArtRecyclerView = ArtRecyclerView()
+    private val adapter: HomeAdapter = HomeAdapter(this, this)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,15 +31,36 @@ class HomeFragment : Fragment(){
         _binding = FragmentHomeBinding.inflate(inflater)
         return binding.root
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.recyclerView.layoutManager = GridLayoutManager(requireContext(), 3)
         binding.recyclerView.adapter = adapter
-        adapter.submitItems(FakeData.flowers)
-
-
+        viewModel.flowersLiveData.observe(viewLifecycleOwner,{
+            adapter.submitItems(it)
+        })
+        searchHome()
 
     }
+
+    override fun onFlowerClick(flowers: ArtModel) {
+        val direction = HomeFragmentDirections.actionHomeFragmentToDetailFragment(flowers)
+        findNavController().navigate(direction)
+    }
+
+    override fun onBasketClick(flowers: ArtModel) {
+        viewModel.addFlowerToBasket(flowers)
+    }
+
+    private fun searchHome(){
+        binding.etSearch.setOnClickListener(searchListener())
+    }
+
+    private fun searchListener(): View.OnClickListener {
+        return View.OnClickListener {
+            findNavController().navigate(R.id.searchFragment)
+        }
+    }
+
 }
 
 

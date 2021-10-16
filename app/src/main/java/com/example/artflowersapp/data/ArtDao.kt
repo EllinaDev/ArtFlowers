@@ -1,15 +1,25 @@
 package com.example.artflowersapp.data
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.lifecycle.LiveData
+import androidx.room.*
 
 @Dao
 interface ArtDao {
+
     @Query("SELECT * FROM ArtModel")
-    fun selectAll(): List<ArtModel>
+    fun selectAll(): LiveData<List<ArtModel>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertName(artModel: ArtModel)
+    suspend fun insertNewItem(artModel: ArtModel)
+
+    @Query("SELECT *FROM ArtModel WHERE name LIKE :query")
+    suspend fun search(query: String): List<ArtModel>
+
+    @Insert
+    suspend fun addBaseFlowers(flowers: List<ArtModel>)
+
+    @Delete
+    fun deleteItem(artModel: ArtModel)
+
+
 }

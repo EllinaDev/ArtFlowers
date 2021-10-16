@@ -7,20 +7,36 @@ import androidx.lifecycle.viewModelScope
 import com.example.artflowersapp.data.ArtModel
 import com.example.artflowersapp.repository.ArtRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class ArtViewModel @Inject constructor(private val repository: ArtRepository): ViewModel() {
 
-    val flowersLiveData: LiveData<ArtModel> = MutableLiveData()
+    val flowersLiveData: LiveData<List<ArtModel>> = repository.selectAll()
 
-    fun insertName(artModel: ArtModel) = viewModelScope.launch {
-        repository.insertName(artModel)
+
+
+    fun addFlowerToBasket(artModel: ArtModel) = viewModelScope.launch(Dispatchers.IO) {
+        try {
+            repository.addFlowerIntoBasket(artModel)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+
     }
 
-    fun selectAll(artModel: List<ArtModel>) = viewModelScope.launch {
-        repository.selectAll()
+    fun addBaseDataToRoom(flowers: List<ArtModel>) {
+        viewModelScope.launch(Dispatchers.IO) {
+            try {
+                repository.addBaseDataToRoom(flowers)
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+
+        }
+
     }
 
 }

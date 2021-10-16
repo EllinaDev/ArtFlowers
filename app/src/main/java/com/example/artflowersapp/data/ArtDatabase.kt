@@ -4,18 +4,16 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import dagger.Binds
-import dagger.Module
-import dagger.Provides
-import dagger.hilt.InstallIn
-import dagger.hilt.components.SingletonComponent
-import javax.inject.Singleton
+import androidx.room.TypeConverters
 
 
-@Database(entities = [ArtModel::class], version = 1, exportSchema = false)
+@Database(entities = [ArtModel::class, BasketModel::class], version = 5, exportSchema = false)
+@TypeConverters(FlowerTypeConverter::class)
 abstract class ArtDatabase : RoomDatabase() {
 
     abstract fun artDao(): ArtDao
+
+    abstract fun basketDao(): BasketDao
 
     companion object{
         @Volatile
@@ -27,7 +25,7 @@ abstract class ArtDatabase : RoomDatabase() {
                     context.applicationContext,
                     ArtDatabase::class.java,
                     "artdatabase"
-                ).build()
+                ).fallbackToDestructiveMigration().build()
                 INSTANCE = instance
                 instance
             }

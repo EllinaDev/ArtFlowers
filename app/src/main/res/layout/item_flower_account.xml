@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:padding="8dp"
-    android:background="@color/backround_black">
+    android:background="@color/backround_black"
+    android:padding="8dp">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
@@ -32,6 +32,14 @@
                 app:layout_constraintEnd_toEndOf="@id/constraint"
                 app:layout_constraintStart_toStartOf="@id/constraint"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/iv_delete"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_baseline_delete_24"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -67,25 +75,10 @@
         tools:text="101 rose"
         android:textColor="@color/white"
         android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@id/btn_add_to_basket"
-        app:layout_constraintEnd_toEndOf="@+id/cardView"
-        app:layout_constraintStart_toStartOf="@+id/cardView"
-        app:layout_constraintTop_toBottomOf="@+id/cardView" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_add_to_basket"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:background="@drawable/bg_add"
-        android:text="@string/st_add_to"
-        android:textSize="12sp"
-        android:textColor="@color/white"
-        android:clickable="true"
-        android:focusable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/cardView"
         app:layout_constraintStart_toStartOf="@+id/cardView"
-        app:layout_constraintTop_toBottomOf="@+id/tv_name" />
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

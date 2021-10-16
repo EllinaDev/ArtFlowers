@@ -92,6 +92,7 @@
         android:textColor="@color/white"
         android:textSize="15sp"
         android:maxLines="1"
+        android:ellipsize="end"
         app:layout_constraintBottom_toTopOf="@id/btn_add_to_basket"
         app:layout_constraintEnd_toEndOf="@+id/cardView"
         app:layout_constraintStart_toStartOf="@+id/cardView"

@@ -94,6 +94,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         tools:text="101 rose"
+        android:maxLines="2"
+        android:ellipsize="end"
         android:textColor="@color/white"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"

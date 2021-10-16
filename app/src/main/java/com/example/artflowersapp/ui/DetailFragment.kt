@@ -19,13 +19,15 @@ import com.example.artflowersapp.utils.FakeData
 import android.R.id.message
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
+import com.example.artflowersapp.viewModel.ArtViewModel
 
 
 class DetailFragment: Fragment(), HomeAdapter.FlowerListener, HomeAdapter.FlowerBasketListener {
 
     private val args: DetailFragmentArgs by navArgs()
-
+    private val viewModel: ArtViewModel by viewModels()
     private var _binding: FragmentDetailBinding? = null
     private val binding: FragmentDetailBinding get() = _binding!!
     private val adapter: HomeAdapter = HomeAdapter(this, this)
@@ -62,6 +64,8 @@ class DetailFragment: Fragment(), HomeAdapter.FlowerListener, HomeAdapter.Flower
             .load(flower?.photoUri)
             .into(binding.ivPhoto)
 
+
+
         binding.ivWhatsapp.setOnClickListener{
             toWhatsapp()
         }
@@ -80,7 +84,7 @@ class DetailFragment: Fragment(), HomeAdapter.FlowerListener, HomeAdapter.Flower
     }
 
     override fun onBasketClick(flowers: ArtModel) {
-
+        viewModel.addFlowerToBasket(flowers)
     }
 
     private fun toWhatsapp(){

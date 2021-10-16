@@ -46,22 +46,43 @@
                 android:layout_height="0dp"
                 android:paddingHorizontal="32dp"
                 android:background="#80090909"
-                app:layout_constraintTop_toTopOf="@id/tv_price"
+                app:layout_constraintTop_toTopOf="@id/cons"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
-            <TextView
-                android:id="@+id/tv_price"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cons"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:maxLines="1"
-                tools:text="2000"
-                android:textColor="@color/white"
-                android:textSize="15sp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/constraint"
                 app:layout_constraintEnd_toEndOf="@id/constraint"
-                app:layout_constraintStart_toStartOf="@id/constraint" />
+                app:layout_constraintStart_toStartOf="@id/constraint">
+
+                <TextView
+                    android:id="@+id/tv_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    tools:text="2000"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    app:layout_constraintEnd_toStartOf="@id/tv_som"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_som"
+                    app:layout_constraintTop_toTopOf="@id/tv_som"/>
+                <TextView
+                    android:id="@+id/tv_som"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:text=" сом"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toEndOf="@id/tv_price"
+                    app:layout_constraintBottom_toBottomOf="@id/cons"
+                    app:layout_constraintTop_toTopOf="@id/cons"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

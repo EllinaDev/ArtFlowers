@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.example.artflowersapp.R
 import com.example.artflowersapp.databinding.FragmentPersonBinding
 import com.example.artflowersapp.databinding.FragmentSettingsBinding
@@ -29,6 +30,9 @@ class SettingsAccountFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.ivBack.setOnClickListener{
+            findNavController().popBackStack()
+        }
 
         binding.tvLanguage.setOnClickListener{
             it.findNavController().navigate(R.id.languageFragment)

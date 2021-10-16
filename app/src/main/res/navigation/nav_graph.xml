@@ -29,7 +29,14 @@
     <fragment
         android:id="@+id/personFragment"
         android:name="com.example.artflowersapp.ui.PersonFragment"
-        android:label="PersonFragment" />
+        android:label="PersonFragment" >
+        <action
+            android:id="@+id/action_personFragment_to_settingsAccountFragment"
+            app:destination="@id/settingsAccountFragment" />
+        <action
+            android:id="@+id/action_personFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.example.artflowersapp.ui.DetailFragment"
@@ -59,4 +66,8 @@
         android:id="@+id/setNewItemFragment"
         android:name="com.example.artflowersapp.ui.SetNewItemFragment"
         android:label="SetNewItemFragment" />
+    <fragment
+        android:id="@+id/settingsAccountFragment"
+        android:name="com.example.artflowersapp.ui.SettingsAccountFragment"
+        android:label="SettingsAccountFragment" />
 </navigation>

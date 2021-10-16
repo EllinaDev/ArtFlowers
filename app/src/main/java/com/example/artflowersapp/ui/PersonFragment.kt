@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.example.artflowersapp.R
 import com.example.artflowersapp.adapter.AccountAdapter
 import com.example.artflowersapp.data.ArtModel
@@ -24,6 +25,7 @@ class PersonFragment: Fragment(), AccountAdapter.AccountFlowerListener, AccountA
     private val binding: FragmentPersonBinding get() = _binding!!
     private val adapter: AccountAdapter = AccountAdapter(this,this)
     private val viewModel: AccountVM by viewModels()
+    private var flower: ArtModel? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -42,6 +44,7 @@ class PersonFragment: Fragment(), AccountAdapter.AccountFlowerListener, AccountA
             adapter.submitItems(it)
         })
 
+        toSettings()
 
     }
 
@@ -50,6 +53,13 @@ class PersonFragment: Fragment(), AccountAdapter.AccountFlowerListener, AccountA
     }
 
     override fun onFlowerClick(artModel: ArtModel) {
-        TODO("Not yet implemented")
+        val directions = PersonFragmentDirections.actionPersonFragmentToDetailFragment(artModel)
+        findNavController().navigate(directions)
+    }
+
+    private fun toSettings(){
+        binding.ivSettings.setOnClickListener {
+            it.findNavController().navigate(R.id.settingsAccountFragment)
+        }
     }
 }

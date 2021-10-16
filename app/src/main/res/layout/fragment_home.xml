@@ -10,11 +10,12 @@
         android:id="@+id/et_search"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_margin="16dp"
+        android:layout_margin="8dp"
         android:background="@drawable/bg_add"
         android:backgroundTint="@color/white"
         android:hint="search..."
         android:paddingHorizontal="16dp"
+        app:layout_constraintBottom_toTopOf="@id/scroll_vie"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -23,7 +24,8 @@
         android:id="@+id/scroll_vie"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@id/tv_top_to_rv"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/et_search">
 
@@ -37,65 +39,81 @@
                 android:layout_height="40dp"
                 android:layout_margin="8dp"
                 android:background="@drawable/bg_add"
+                android:text="Все"
                 android:textColor="@color/white"
-                android:textSize="12sp"
-                android:text="Все" />
+                android:textSize="12sp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="100dp"
                 android:layout_height="40dp"
                 android:layout_margin="8dp"
                 android:background="@drawable/bg_add"
+                android:text="в тренде"
                 android:textColor="@color/white"
-                android:textSize="12sp"
-                android:text="в тренде" />
+                android:textSize="12sp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="100dp"
                 android:layout_height="40dp"
                 android:layout_margin="8dp"
                 android:background="@drawable/bg_add"
+                android:text="новые"
                 android:textColor="@color/white"
-                android:textSize="12sp"
-                android:text="новые" />
+                android:textSize="12sp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="100dp"
                 android:layout_height="40dp"
                 android:layout_margin="8dp"
                 android:background="@drawable/bg_add"
+                android:text="акции"
                 android:textColor="@color/white"
-                android:textSize="12sp"
-                android:text="акции" />
+                android:textSize="12sp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="100dp"
                 android:layout_height="40dp"
                 android:layout_margin="8dp"
                 android:background="@drawable/bg_add"
+                android:text="подарки"
                 android:textColor="@color/white"
-                android:textSize="12sp"
-                android:text="подарки" />
+                android:textSize="12sp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="100dp"
                 android:layout_height="40dp"
                 android:layout_margin="8dp"
                 android:background="@drawable/bg_add"
+                android:text="свадебные"
                 android:textColor="@color/white"
-                android:textSize="12sp"
-                android:text="свадебные" />
+                android:textSize="12sp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="100dp"
                 android:layout_height="40dp"
                 android:layout_margin="8dp"
                 android:background="@drawable/bg_add"
+                android:text="композиции"
                 android:textColor="@color/white"
-                android:textSize="12sp"
-                android:text="композиции" />
+                android:textSize="12sp" />
         </LinearLayout>
     </HorizontalScrollView>
+
+    <TextView
+        android:id="@+id/tv_top_to_rv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Все:"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:layout_margin="8dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/scroll_vie"
+        app:layout_constraintBottom_toTopOf="@id/recycler_view"/>
+
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
@@ -106,9 +124,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/scroll_vie"
+        app:layout_constraintTop_toBottomOf="@id/tv_top_to_rv"
         app:spanCount="3"
-        tools:listitem="@layout/item_flower"
-        android:layout_margin="16dp"/>
+        tools:listitem="@layout/item_flower" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

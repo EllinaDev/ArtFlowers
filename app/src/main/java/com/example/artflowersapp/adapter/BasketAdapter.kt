@@ -3,6 +3,7 @@ package com.example.artflowersapp.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.artflowersapp.R
 import com.example.artflowersapp.data.ArtModel
 import com.example.artflowersapp.data.BasketModel
@@ -33,7 +34,9 @@ class BasketAdapter(private val listener: BasketListener, private val flowerList
             binding.tvPrice.text = flowers.flower.price.toString()
             binding.tvName.text = flowers.flower.name
             binding.tvDescription.text = flowers.flower.description.toString()
-            binding.ivPhoto.setImageResource(R.drawable.flower_two)
+            Glide.with(binding.root.context)
+                .load(flowers.flower.photoUri)
+                .into(binding.ivPhoto)
             binding.ivDelete.setOnClickListener {
                 listener.deleteFromBasket(flowers)
             }

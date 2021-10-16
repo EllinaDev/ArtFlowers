@@ -34,26 +34,49 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <LinearLayout
+                android:id="@+id/liner"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:paddingHorizontal="32dp"
                 android:background="#80090909"
-                app:layout_constraintTop_toTopOf="@id/tv_price"
+                app:layout_constraintTop_toTopOf="@id/cons"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                android:orientation="horizontal" />
 
-            <TextView
-                android:id="@+id/tv_price"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cons"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:maxLines="1"
-                tools:text="2000"
-                android:textColor="@color/white"
-                android:textSize="15sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@id/constraint"
-                app:layout_constraintStart_toStartOf="@id/constraint" />
+                app:layout_constraintBottom_toBottomOf="@id/liner"
+                app:layout_constraintEnd_toEndOf="@id/liner"
+                app:layout_constraintStart_toStartOf="@id/liner">
+
+                <TextView
+                    android:id="@+id/tv_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    tools:text="2000"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    app:layout_constraintEnd_toStartOf="@id/tv_som"
+                    app:layout_constraintBottom_toBottomOf="@id/cons" />
+                <TextView
+                    android:id="@+id/tv_som"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    tools:text=" сом"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toEndOf="@id/tv_price"
+                    app:layout_constraintBottom_toBottomOf="@id/cons"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -65,8 +88,10 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         tools:text="101 rose"
+        android:textStyle="bold"
         android:textColor="@color/white"
         android:textSize="15sp"
+        android:maxLines="1"
         app:layout_constraintBottom_toTopOf="@id/btn_add_to_basket"
         app:layout_constraintEnd_toEndOf="@+id/cardView"
         app:layout_constraintStart_toStartOf="@+id/cardView"
@@ -74,7 +99,7 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_add_to_basket"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:background="@drawable/bg_add"
         android:text="@string/st_add_to"

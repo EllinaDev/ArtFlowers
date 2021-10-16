@@ -13,7 +13,6 @@
         android:id="@+id/cardView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
         app:cardCornerRadius="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,32 +32,59 @@
 
     <LinearLayout
         android:id="@+id/ll_desc"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:layout_margin="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/linearLayout"
         app:layout_constraintStart_toEndOf="@+id/cardView"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/tv_price"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            tools:text="3000 som" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/con"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tv_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:maxLines="1"
+                tools:text="3000"
+                app:layout_constraintTop_toTopOf="@id/con"
+                app:layout_constraintBottom_toBottomOf="@id/con"
+                app:layout_constraintEnd_toStartOf="@id/tv_som"/>
+            <TextView
+                android:id="@+id/tv_som"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                tools:text=" сом"
+                app:layout_constraintTop_toTopOf="@id/con"
+                app:layout_constraintBottom_toBottomOf="@id/con"
+                app:layout_constraintStart_toEndOf="@id/tv_price"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
         <TextView
             android:id="@+id/tv_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
-            android:textSize="20sp"
-            tools:text="Spring Mix" />
+            android:textStyle="bold"
+            android:maxLines="2"
+            android:textSize="15sp"
+            tools:text="Spring Mix"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"/>
 
         <TextView
             android:id="@+id/tv_description"
@@ -67,7 +93,7 @@
             android:ellipsize="end"
             android:maxLines="3"
             android:textColor="@color/white"
-            android:textSize="15sp"
+            android:textSize="12sp"
             tools:text="Чарующий и необычайно нежный букет навеет романтическое настроение и подарит незабываемые впечатления! " />
 
     </LinearLayout>

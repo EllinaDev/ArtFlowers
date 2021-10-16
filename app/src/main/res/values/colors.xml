@@ -11,4 +11,5 @@
     <color name="black">#000</color>
     <color name="red_price_color">#E81414</color>
     <color name="white_hint_text">#B3FFFFFF</color>
+    <color name="cute">#DF6A92</color>
 </resources>

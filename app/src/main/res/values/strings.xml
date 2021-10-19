@@ -4,4 +4,8 @@
     <string name="st_trend">trend</string>
     <string name="st_add_to">в корзину</string>
     <string name="st_same_flowers">Похожие товары:</string>
+    <string name="dialogTitle">Удаление публикации</string>
+    <string name="dialogMessage">Вы действительно хотите безвозвратно удалить данную публикацию?</string>
+    <string name="ad_no">Отмена</string>
+    <string name="ad_yes">Удалить</string>
 </resources>

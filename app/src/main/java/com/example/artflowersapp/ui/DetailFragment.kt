@@ -1,10 +1,7 @@
 package com.example.artflowersapp.ui
 
-import android.R.id
 import android.content.ActivityNotFoundException
-import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -15,12 +12,10 @@ import androidx.navigation.fragment.navArgs
 import com.example.artflowersapp.adapter.HomeAdapter
 import com.example.artflowersapp.data.ArtModel
 import com.example.artflowersapp.databinding.FragmentDetailBinding
-import com.example.artflowersapp.utils.FakeData
-import android.R.id.message
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
+import com.example.artflowersapp.data.ArtDao
 import com.example.artflowersapp.viewModel.ArtViewModel
 
 
@@ -53,7 +48,10 @@ class DetailFragment: Fragment(), HomeAdapter.FlowerListener, HomeAdapter.Flower
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.recyclerView.adapter = adapter
-        adapter.submitItems(FakeData.flowers)
+        getSimilar(composition = flower?.composition.toString())
+        viewModel.similarItemsLD.observe(viewLifecycleOwner,{
+            adapter.submitItems(it)
+        })
 
         binding.tvName.text = flower?.name
         binding.tvComposition.text = flower?.composition
@@ -80,7 +78,8 @@ class DetailFragment: Fragment(), HomeAdapter.FlowerListener, HomeAdapter.Flower
     }
 
     override fun onFlowerClick(flowers: ArtModel) {
-
+        val directions = DetailFragmentDirections.actionDetailFragmentSelf(flower)
+        findNavController().navigate(directions)
     }
 
     override fun onBasketClick(flowers: ArtModel) {
@@ -129,6 +128,26 @@ class DetailFragment: Fragment(), HomeAdapter.FlowerListener, HomeAdapter.Flower
         val surf = Intent(Intent.ACTION_DIAL, call)
         startActivity(surf)
     }
+
+    fun getSimilar(composition: String) {
+        val withoutNums = composition.replace("[0-9]".toRegex(), "")
+        var words = withoutNums.split(" ")
+        var realWords = arrayListOf<String>()
+        words.forEach {
+            if (it.isNotEmpty() && it.length > 2) {
+                realWords.add(it)
+            }
+        }
+        var query = " "
+        for (i in 0..realWords.lastIndex) {
+            query += realWords[i]
+            if (i != realWords.lastIndex) {
+                query += " OR "
+            }
+        }
+        viewModel.getSimilarQuery(query)
+    }
+
 
 
 }

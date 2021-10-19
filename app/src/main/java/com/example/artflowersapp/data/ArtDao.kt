@@ -21,5 +21,8 @@ interface ArtDao {
     @Delete
     fun deleteItem(artModel: ArtModel)
 
+    @Query("SELECT *FROM ArtModel WHERE composition MATCH :query")
+    fun getSimilarQuery(query: String): List<ArtModel>
+
 
 }

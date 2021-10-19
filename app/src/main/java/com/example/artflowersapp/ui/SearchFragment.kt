@@ -62,4 +62,8 @@ class SearchFragment: Fragment(), HomeAdapter.FlowerBasketListener, HomeAdapter.
     override fun onBasketClick(flowers: ArtModel) {
         TODO("Not yet implemented")
     }
+
+
+
+
 }

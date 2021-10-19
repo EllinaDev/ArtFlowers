@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.example.artflowersapp.R
 import com.example.artflowersapp.adapter.BasketAdapter
 import com.example.artflowersapp.data.ArtModel
 import com.example.artflowersapp.data.BasketModel
@@ -30,6 +31,7 @@ class BasketFragment: Fragment(), BasketAdapter.BasketListener, BasketAdapter.Fl
     ): View? {
         _binding = FragmentBasketBinding.inflate(inflater)
         return binding.root
+        searchHome()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -47,6 +49,16 @@ class BasketFragment: Fragment(), BasketAdapter.BasketListener, BasketAdapter.Fl
     override fun onFlowerClick(flowers: ArtModel) {
         val direction = BasketFragmentDirections.actionBasketFragmentToDetailFragment(flowers)
         findNavController().navigate(direction)
+    }
+
+    private fun searchHome(){
+        binding.etSearch.setOnClickListener(searchListener())
+    }
+
+    private fun searchListener(): View.OnClickListener {
+        return View.OnClickListener {
+            findNavController().navigate(R.id.searchFragment)
+        }
     }
 
 }

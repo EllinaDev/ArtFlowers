@@ -19,6 +19,9 @@ class ArtViewModel @Inject constructor(private val repository: ArtRepository): V
     private val _similarItemsLD = MutableLiveData<List<ArtModel>>()
     val similarItemsLD : LiveData<List<ArtModel>> = _similarItemsLD
 
+    private val _searchResult = MutableLiveData<List<ArtModel>>()
+    val searchResult : LiveData<List<ArtModel>> = _searchResult
+
 
 
     fun addFlowerToBasket(artModel: ArtModel) = viewModelScope.launch(Dispatchers.IO) {
@@ -46,6 +49,24 @@ class ArtViewModel @Inject constructor(private val repository: ArtRepository): V
         try {
             _similarItemsLD.postValue(repository.getSimilarQuery(query))
         } catch (e:Exception) {
+            e.printStackTrace()
+        }
+    }
+
+    fun search(query: String) = viewModelScope.launch(Dispatchers.IO) {
+        try {
+            _searchResult.postValue(repository.search(query))
+        } catch (e:Exception) {
+            e.printStackTrace()
+        }
+    }
+
+    fun updateLikes(artModel: ArtModel?) = viewModelScope. launch(Dispatchers.IO) {
+        try {
+            if (artModel != null) {
+                repository.updateLikes(artModel)
+            }
+        } catch (e: Exception) {
             e.printStackTrace()
         }
     }

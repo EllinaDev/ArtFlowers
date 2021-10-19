@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.LiveData
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.artflowersapp.R
@@ -102,7 +103,7 @@ class PersonFragment: Fragment(), AccountAdapter.AccountFlowerListener, AccountA
         builder.setTitle(R.string.dialogTitle)
         //set message for alert dialog
         builder.setMessage(R.string.dialogMessage)
-        builder.setIcon(android.R.drawable.ic_dialog_alert)
+        builder.setIcon(R.drawable.ic_baseline_delete_24)
 
         //performing positive action
         builder.setPositiveButton(R.string.ad_yes) { dialogInterface, which ->

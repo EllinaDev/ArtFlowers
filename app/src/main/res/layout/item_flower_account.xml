@@ -37,9 +37,10 @@
                 android:id="@+id/iv_delete"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@drawable/ic_baseline_delete_24"
+                android:background="#80090909"
+                android:src="@drawable/ic_baseline_delete_24_white"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <LinearLayout
                 android:layout_width="0dp"

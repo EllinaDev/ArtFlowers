@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.artflowersapp.databinding.FragmentLanguageBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class LanguageFragment : Fragment() {
     private var _binding: FragmentLanguageBinding? = null
     private val binding: FragmentLanguageBinding get() = _binding!!

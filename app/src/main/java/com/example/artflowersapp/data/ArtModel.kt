@@ -17,12 +17,12 @@ data class ArtModel(
     val categoryId: Int? = null,
     val photo: Int? = null,
     val photoUri: String? = null,
-    val likeCount: Int? = null,
     val size: String? = null,
     val composition: String? = null,
     val telNumber: Int? = null,
     val waNumber: Int? = null,
-    val instAccount: String? = null
+    val instAccount: String? = null,
+    var likesCount: Int? = null
 ) : Parcelable {
 
     fun artToBasket(): BasketModel {

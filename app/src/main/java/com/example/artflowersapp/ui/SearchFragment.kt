@@ -7,12 +7,11 @@ import android.view.ViewGroup
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.artflowersapp.adapter.HomeAdapter
 import com.example.artflowersapp.data.ArtModel
-import com.example.artflowersapp.databinding.FragmentHomeBinding
 import com.example.artflowersapp.databinding.FragmentSearchBinding
-import com.example.artflowersapp.utils.FakeData
-import com.example.artflowersapp.viewModel.SearchVM
+import com.example.artflowersapp.viewModel.ArtViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -21,7 +20,7 @@ class SearchFragment: Fragment(), HomeAdapter.FlowerBasketListener, HomeAdapter.
     private var _binding: FragmentSearchBinding? = null
     private val binding: FragmentSearchBinding get() = _binding!!
     private val adapter: HomeAdapter = HomeAdapter(this,this)
-    private val viewModel: SearchVM by viewModels()
+    private val viewModel: ArtViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -44,6 +43,7 @@ class SearchFragment: Fragment(), HomeAdapter.FlowerBasketListener, HomeAdapter.
         binding.etSearch.doOnTextChanged { text, start, before, count ->
             if (text?.trim()?.isNotEmpty() == true) {
                 viewModel.search("%$text%")
+                binding.tvResultToSearch.text = text
                 println(text)
             }
         }
@@ -56,11 +56,12 @@ class SearchFragment: Fragment(), HomeAdapter.FlowerBasketListener, HomeAdapter.
     }
 
     override fun onFlowerClick(flowers: ArtModel) {
-        TODO("Not yet implemented")
+        val direction = SearchFragmentDirections.actionSearchFragmentToDetailFragment(flowers)
+        findNavController().navigate(direction)
     }
 
     override fun onBasketClick(flowers: ArtModel) {
-        TODO("Not yet implemented")
+        viewModel.addFlowerToBasket(flowers)
     }
 
 

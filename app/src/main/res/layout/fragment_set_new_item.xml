@@ -1,173 +1,195 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backround_black">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="8dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/btn_ready"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/iv_add_photo"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/ic_baseline_add_photo_alternate_24"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <EditText
-            android:id="@+id/et_add_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:backgroundTint="@color/white"
-            android:hint="название товара"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white_hint_text"
-            android:textSize="20sp" />
-
-        <EditText
-            android:id="@+id/et_add_price"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:backgroundTint="@color/white"
-            android:hint="стоимость товара"
-            android:inputType="number"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white_hint_text"
-            android:textSize="20sp" />
-
-        <EditText
-            android:id="@+id/et_add_composition"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:backgroundTint="@color/white"
-            android:hint="состав товара"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white_hint_text"
-            android:textSize="20sp" />
-
-        <EditText
-            android:id="@+id/et_add_size"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:backgroundTint="@color/white"
-            android:hint="размер товара"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white_hint_text"
-            android:textSize="20sp" />
-
-        <EditText
-            android:id="@+id/et_add_description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:backgroundTint="@color/white"
-            android:hint="описание товара"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white_hint_text"
-            android:textSize="20sp" />
-
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:orientation="horizontal">
+            android:layout_height="0dp"
+            android:layout_margin="8dp"
+            android:orientation="vertical">
 
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_margin="8dp"
-                android:src="@drawable/ic_baseline_phone_24" />
-
-            <EditText
-                android:id="@+id/et_add_number"
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Заполните анкету"
+                android:textColor="@color/white_hint_text"
+                android:textSize="20sp"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="выберите изображение"
+                android:textColor="@color/white_hint_text"
+                android:layout_marginBottom="4dp"/>
+
+            <ImageView
+                android:id="@+id/iv_add_photo"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@color/white_hint_text"
+                android:src="@drawable/ic_baseline_add_24"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/et_add_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
                 android:backgroundTint="@color/white"
-                android:hint="номер телефона"
-                android:inputType="phone"
+                android:hint="название товара"
                 android:textColor="@color/white"
                 android:textColorHint="@color/white_hint_text"
                 android:textSize="20sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_margin="8dp"
-                android:src="@drawable/ic_whatsapp" />
 
             <EditText
-                android:id="@+id/et_add_wa_number"
+                android:id="@+id/et_add_price"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
                 android:backgroundTint="@color/white"
-                android:hint="номер телефона"
-                android:inputType="phone"
+                android:hint="стоимость товара"
+                android:inputType="number"
                 android:textColor="@color/white"
                 android:textColorHint="@color/white_hint_text"
                 android:textSize="20sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_margin="8dp"
-                android:src="@drawable/ic_instagram" />
 
             <EditText
-                android:id="@+id/et_add_insta"
+                android:id="@+id/et_add_composition"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
                 android:backgroundTint="@color/white"
-                android:hint="instagram аккаунт"
+                android:hint="состав товара"
                 android:textColor="@color/white"
                 android:textColorHint="@color/white_hint_text"
                 android:textSize="20sp" />
-        </LinearLayout>
 
-    </LinearLayout>
+            <EditText
+                android:id="@+id/et_add_size"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:backgroundTint="@color/white"
+                android:hint="размер товара"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white_hint_text"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/et_add_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:backgroundTint="@color/white"
+                android:hint="описание товара"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white_hint_text"
+                android:textSize="20sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_margin="8dp"
+                    android:src="@drawable/ic_baseline_phone_24" />
+
+                <EditText
+                    android:id="@+id/et_add_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white"
+                    android:hint="номер телефона"
+                    android:inputType="phone"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white_hint_text"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_margin="8dp"
+                    android:src="@drawable/ic_whatsapp" />
+
+                <EditText
+                    android:id="@+id/et_add_wa_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white"
+                    android:hint="номер телефона"
+                    android:inputType="phone"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white_hint_text"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_margin="8dp"
+                    android:src="@drawable/ic_instagram" />
+
+                <EditText
+                    android:id="@+id/et_add_insta"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white"
+                    android:hint="instagram аккаунт"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white_hint_text"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_ready"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
-        android:paddingStart="8dp"
-        android:paddingEnd="8dp"
         android:background="@drawable/bg_add"
         android:clickable="true"
         android:focusable="true"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
         android:text="опубликовать"
         android:textColor="@color/white"
         android:textSize="12sp"

@@ -8,4 +8,7 @@
     <string name="dialogMessage">Вы действительно хотите безвозвратно удалить данную публикацию?</string>
     <string name="ad_no">Отмена</string>
     <string name="ad_yes">Удалить</string>
+    <string name="dialog_title_set_new">Публикация продукта</string>
+    <string name="dialog_message_set_new">Вы действительно хотите опубликовать данный продукт</string>
+    <string name="ad_yes_set_new">Опубликовать</string>
 </resources>

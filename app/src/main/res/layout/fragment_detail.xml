@@ -34,7 +34,7 @@
             android:layout_margin="8dp">
 
             <ImageView
-                android:id="@+id/iv_heart"
+                android:id="@+id/iv_like"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:src="@drawable/ic_baseline_favorite_24_white"
@@ -43,14 +43,15 @@
                 app:layout_constraintBottom_toBottomOf="@id/cons"/>
 
             <TextView
+                android:id="@+id/tv_likes_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="20"
+                tools:text="20"
                 android:textColor="@color/white"
                 android:textSize="18sp"
-                app:layout_constraintStart_toEndOf="@id/iv_heart"
-                app:layout_constraintTop_toTopOf="@id/iv_heart"
-                app:layout_constraintBottom_toBottomOf="@id/iv_heart"
+                app:layout_constraintStart_toEndOf="@id/iv_like"
+                app:layout_constraintTop_toTopOf="@id/iv_like"
+                app:layout_constraintBottom_toBottomOf="@id/iv_like"
                 android:layout_marginStart="4dp"/>
 
             <TextView

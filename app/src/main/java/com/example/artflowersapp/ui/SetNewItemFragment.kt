@@ -7,8 +7,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.artflowersapp.databinding.FragmentSetNewItemBinding
 import android.app.Activity.RESULT_OK
+import android.app.AlertDialog
 import android.content.Intent
+import android.widget.Toast
 import androidx.fragment.app.viewModels
+import com.example.artflowersapp.R
 import com.example.artflowersapp.data.ArtModel
 import com.example.artflowersapp.viewModel.SetNewItemVM
 import dagger.hilt.android.AndroidEntryPoint
@@ -56,7 +59,8 @@ class SetNewItemFragment : Fragment() {
                 photoUri = imageUri
             )
 
-            viewModel.insertNewItem(newArtModel)
+            //viewModel.insertNewItem(newArtModel)
+            alertDialog(newArtModel)
         }
 
 
@@ -75,6 +79,30 @@ class SetNewItemFragment : Fragment() {
         }
     }
 
+    fun alertDialog(artModel: ArtModel) {
+
+        val builder = AlertDialog.Builder(context)
+        //set title for alert dialog
+        builder.setTitle(R.string.dialog_title_set_new)
+        //set message for alert dialog
+        builder.setMessage(R.string.dialog_message_set_new)
+        builder.setIcon(R.drawable.ic_baseline_add_24)
+
+        //performing positive action
+        builder.setPositiveButton(R.string.ad_yes_set_new) { dialogInterface, which ->
+            viewModel.insertNewItem(artModel)
+            Toast.makeText(context,"Продукт опубликован", Toast.LENGTH_LONG).show()
+        }
+        //performing negative action
+        builder.setNegativeButton(R.string.ad_no) { dialogInterface, which ->
+            dialogInterface.cancel()
+        }
+        // Create the AlertDialog
+        val alertDialog: AlertDialog = builder.create()
+        // Set other dialog properties
+        alertDialog.setCancelable(false)
+        alertDialog.show()
+    }
 
 
 

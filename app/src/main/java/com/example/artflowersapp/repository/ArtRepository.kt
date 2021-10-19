@@ -33,8 +33,11 @@ class ArtRepository @Inject constructor(private val artDao: ArtDao, private val 
         artDao.deleteItem(artModel)
     }
 
-
     fun getSimilarQuery(query: String) : List<ArtModel> {
         return artDao.getSimilarQuery(query)
+    }
+
+    suspend fun updateLikes(artModel: ArtModel) {
+        artDao.updateLikes(artModel)
     }
 }

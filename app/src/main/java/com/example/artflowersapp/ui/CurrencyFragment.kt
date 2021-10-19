@@ -8,7 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.artflowersapp.databinding.FragmentCurrencyBinding
 import com.example.artflowersapp.databinding.FragmentLanguageBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class CurrencyFragment : Fragment() {
     private var _binding: FragmentCurrencyBinding? = null
     private val binding: FragmentCurrencyBinding get() = _binding!!

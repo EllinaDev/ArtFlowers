@@ -3,6 +3,7 @@ package com.example.artflowersapp.adapter
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.artflowersapp.R
@@ -49,6 +50,7 @@ class HomeAdapter(private val listener: FlowerListener, private val basketListen
             }
             binding.btnAddToBasket.setOnClickListener {
                 basketListener.onBasketClick(flowers)
+                Toast.makeText(binding.root.context,"Продукт добавлен в корзину", Toast.LENGTH_SHORT).show()
             }
         }
 

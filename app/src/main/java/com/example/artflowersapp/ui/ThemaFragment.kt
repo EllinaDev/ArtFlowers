@@ -8,7 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.artflowersapp.databinding.FragmentLanguageBinding
 import com.example.artflowersapp.databinding.FragmentThemaBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ThemaFragment : Fragment() {
     private var _binding: FragmentThemaBinding? = null
     private val binding: FragmentThemaBinding get() = _binding!!

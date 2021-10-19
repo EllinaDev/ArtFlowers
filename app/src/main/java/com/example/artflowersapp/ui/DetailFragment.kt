@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.example.artflowersapp.adapter.HomeAdapter
@@ -17,8 +18,9 @@ import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.example.artflowersapp.data.ArtDao
 import com.example.artflowersapp.viewModel.ArtViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class DetailFragment: Fragment(), HomeAdapter.FlowerListener, HomeAdapter.FlowerBasketListener {
 
     private val args: DetailFragmentArgs by navArgs()
@@ -43,6 +45,7 @@ class DetailFragment: Fragment(), HomeAdapter.FlowerListener, HomeAdapter.Flower
         _binding = FragmentDetailBinding.inflate(inflater)
         return binding.root
 
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -58,11 +61,26 @@ class DetailFragment: Fragment(), HomeAdapter.FlowerListener, HomeAdapter.Flower
         binding.tvSize.text = flower?.size
         binding.tvDescription.text = flower?.description
         binding.tvPrice.text = flower?.price.toString()
+        binding.tvLikesCount.text = "${flower?.likesCount?:0}"
         Glide.with(binding.root.context)
             .load(flower?.photoUri)
             .into(binding.ivPhoto)
 
+        binding.btnAddToBasket.setOnClickListener {
+            if (flower != null){
+                viewModel.addFlowerToBasket(flower!!)
+                Toast.makeText(context,"Продукт добавлен в корзину", Toast.LENGTH_SHORT).show()
+            }
+        }
 
+        binding.ivLike.setOnClickListener {
+            if (flower?.likesCount != null) {
+                flower?.likesCount = 1
+            }else{
+                flower?.likesCount?.plus(1)
+            }
+            viewModel.updateLikes(flower)
+        }
 
         binding.ivWhatsapp.setOnClickListener{
             toWhatsapp()
@@ -73,7 +91,6 @@ class DetailFragment: Fragment(), HomeAdapter.FlowerListener, HomeAdapter.Flower
         binding.ivCall.setOnClickListener {
             toPhone()
         }
-
 
     }
 

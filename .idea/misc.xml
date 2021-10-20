@@ -22,7 +22,7 @@
         <entry key="app/src/main/res/layout/fragment_item_click.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_language.xml" value="0.24375" />
         <entry key="app/src/main/res/layout/fragment_person.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_search.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_search.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_set_new_item.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.24375" />
         <entry key="app/src/main/res/layout/fragment_thema.xml" value="0.24375" />

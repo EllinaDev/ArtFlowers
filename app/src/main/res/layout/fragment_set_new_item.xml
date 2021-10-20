@@ -24,158 +24,246 @@
                 android:text="Заполните анкету"
                 android:textColor="@color/white_hint_text"
                 android:textSize="20sp"
-                android:layout_marginBottom="8dp"/>
+                android:layout_marginBottom="10dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="выберите изображение"
+                android:textStyle="italic"
+                android:textSize="14sp"
+                android:gravity="center"
                 android:textColor="@color/white_hint_text"
                 android:layout_marginBottom="4dp"/>
 
             <ImageView
                 android:id="@+id/iv_add_photo"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:scaleType="centerCrop"
+                android:layout_gravity="center"
+                android:layout_marginBottom="8dp"
                 android:background="@color/white_hint_text"
                 android:src="@drawable/ic_baseline_add_24"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="введите название товара"
+                android:textColor="@color/white_hint_text"
+                android:layout_marginTop="8dp"
+                android:textStyle="italic"
+                android:textSize="15sp"/>
+
             <EditText
                 android:id="@+id/et_add_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 android:backgroundTint="@color/white"
-                android:hint="название товара"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white_hint_text"
-                android:textSize="20sp" />
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="введите стоимость товара"
+                android:textColor="@color/white_hint_text"
+                android:layout_marginTop="8dp"
+                android:textStyle="italic"
+                android:textSize="15sp"/>
 
             <EditText
                 android:id="@+id/et_add_price"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 android:backgroundTint="@color/white"
-                android:hint="стоимость товара"
                 android:inputType="number"
                 android:textColor="@color/white"
-                android:textColorHint="@color/white_hint_text"
                 android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="введите состав товара"
+                android:textColor="@color/white_hint_text"
+                android:layout_marginTop="8dp"
+                android:textStyle="italic"
+                android:textSize="15sp"/>
 
             <EditText
                 android:id="@+id/et_add_composition"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 android:backgroundTint="@color/white"
-                android:hint="состав товара"
                 android:textColor="@color/white"
-                android:textColorHint="@color/white_hint_text"
                 android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="введите размер товара"
+                android:textColor="@color/white_hint_text"
+                android:layout_marginTop="8dp"
+                android:textStyle="italic"
+                android:textSize="15sp"/>
 
             <EditText
                 android:id="@+id/et_add_size"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 android:backgroundTint="@color/white"
-                android:hint="размер товара"
                 android:textColor="@color/white"
-                android:textColorHint="@color/white_hint_text"
                 android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="введите описание товара"
+                android:textColor="@color/white_hint_text"
+                android:layout_marginTop="8dp"
+                android:textStyle="italic"
+                android:textSize="15sp"/>
 
             <EditText
                 android:id="@+id/et_add_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 android:backgroundTint="@color/white"
-                android:hint="описание товара"
                 android:textColor="@color/white"
-                android:textColorHint="@color/white_hint_text"
                 android:textSize="20sp" />
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content">
 
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_margin="8dp"
-                    android:src="@drawable/ic_baseline_phone_24" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="введите номер телефона"
+                    android:textColor="@color/white_hint_text"
+                    android:textSize="15sp"
+                    android:textStyle="italic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/et_add_number" />
 
                 <EditText
                     android:id="@+id/et_add_number"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/white"
-                    android:hint="номер телефона"
                     android:inputType="phone"
                     android:textColor="@color/white"
-                    android:textColorHint="@color/white_hint_text"
-                    android:textSize="20sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                android:orientation="horizontal">
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:textSize="20sp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/iv_phone"/>
 
                 <ImageView
+                    android:id="@+id/iv_phone"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_margin="8dp"
-                    android:src="@drawable/ic_whatsapp" />
+                    app:layout_constraintTop_toTopOf="@id/et_add_number"
+                    app:layout_constraintBottom_toBottomOf="@id/et_add_number"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:src="@drawable/ic_baseline_phone_24" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="введите номер телефона"
+                    android:textColor="@color/white_hint_text"
+                    android:textSize="15sp"
+                    android:textStyle="italic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/et_add_wa_number" />
 
                 <EditText
                     android:id="@+id/et_add_wa_number"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/white"
-                    android:hint="номер телефона"
                     android:inputType="phone"
                     android:textColor="@color/white"
-                    android:textColorHint="@color/white_hint_text"
-                    android:textSize="20sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                android:orientation="horizontal">
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:textSize="20sp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/iv_phone_wa"/>
 
                 <ImageView
+                    android:id="@+id/iv_phone_wa"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_margin="8dp"
-                    android:src="@drawable/ic_instagram" />
+                    app:layout_constraintTop_toTopOf="@id/et_add_wa_number"
+                    app:layout_constraintBottom_toBottomOf="@id/et_add_wa_number"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:src="@drawable/ic_whatsapp" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="введите instagram аккаунт"
+                    android:textColor="@color/white_hint_text"
+                    android:textSize="15sp"
+                    android:textStyle="italic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/et_add_insta" />
 
                 <EditText
                     android:id="@+id/et_add_insta"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/white"
-                    android:hint="instagram аккаунт"
+                    android:inputType="phone"
                     android:textColor="@color/white"
-                    android:textColorHint="@color/white_hint_text"
-                    android:textSize="20sp" />
-            </LinearLayout>
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:textSize="20sp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/iv_instagram"/>
+
+                <ImageView
+                    android:id="@+id/iv_instagram"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_margin="8dp"
+                    app:layout_constraintTop_toTopOf="@id/et_add_insta"
+                    app:layout_constraintBottom_toBottomOf="@id/et_add_insta"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:src="@drawable/ic_instagram" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
 
         </LinearLayout>
     </ScrollView>

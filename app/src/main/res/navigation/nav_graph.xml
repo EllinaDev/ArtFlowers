@@ -17,12 +17,16 @@
                 app:argType="com.example.artflowersapp.data.ArtModel"
                 app:nullable="true" />
         </action>
-        <action
-            android:id="@+id/action_homeFragment_to_searchFragment"
-            app:destination="@id/searchFragment" />
     </fragment>
 
-
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.artflowersapp.ui.SearchFragment"
+        android:label="SearchFragment" >
+        <action
+            android:id="@+id/action_searchFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/basketFragment"
@@ -31,9 +35,6 @@
         <action
             android:id="@+id/action_basketFragment_to_detailFragment"
             app:destination="@id/detailFragment" />
-        <action
-            android:id="@+id/action_basketFragment_to_searchFragment"
-            app:destination="@id/searchFragment" />
     </fragment>
 
 
@@ -78,16 +79,6 @@
         android:label="ThemaFragment" />
 
     <fragment
-        android:id="@+id/searchFragment"
-        android:name="com.example.artflowersapp.ui.SearchFragment"
-        android:label="SearchFragment" >
-        <action
-            android:id="@+id/action_searchFragment_to_detailFragment"
-            app:destination="@id/detailFragment" />
-    </fragment>
-
-
-    <fragment
         android:id="@+id/setNewItemFragment"
         android:name="com.example.artflowersapp.ui.SetNewItemFragment"
         android:label="SetNewItemFragment" />
@@ -95,4 +86,5 @@
         android:id="@+id/settingsAccountFragment"
         android:name="com.example.artflowersapp.ui.SettingsAccountFragment"
         android:label="SettingsAccountFragment" />
+
 </navigation>

@@ -31,7 +31,6 @@ class BasketFragment: Fragment(), BasketAdapter.BasketListener, BasketAdapter.Fl
     ): View? {
         _binding = FragmentBasketBinding.inflate(inflater)
         return binding.root
-        searchHome()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -49,16 +48,6 @@ class BasketFragment: Fragment(), BasketAdapter.BasketListener, BasketAdapter.Fl
     override fun onFlowerClick(flowers: ArtModel) {
         val direction = BasketFragmentDirections.actionBasketFragmentToDetailFragment(flowers)
         findNavController().navigate(direction)
-    }
-
-    private fun searchHome(){
-        binding.etSearch.setOnClickListener(searchListener())
-    }
-
-    private fun searchListener(): View.OnClickListener {
-        return View.OnClickListener {
-            findNavController().navigate(R.id.searchFragment)
-        }
     }
 
 }

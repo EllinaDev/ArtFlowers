@@ -52,14 +52,9 @@ class HomeFragment : Fragment(), HomeAdapter.FlowerListener, HomeAdapter.FlowerB
     }
 
     private fun searchHome(){
-        binding.etSearch.setOnClickListener(searchListener())
     }
 
-    private fun searchListener(): View.OnClickListener {
-        return View.OnClickListener {
-            findNavController().navigate(R.id.searchFragment)
-        }
-    }
+
 
 }
 

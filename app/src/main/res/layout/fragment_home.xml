@@ -6,20 +6,6 @@
     android:layout_height="match_parent"
     android:background="@color/backround_black">
 
-    <EditText
-        android:id="@+id/et_search"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_margin="8dp"
-        android:background="@drawable/bg_add"
-        android:backgroundTint="@color/white"
-        android:hint="search..."
-        android:paddingHorizontal="16dp"
-        app:layout_constraintBottom_toTopOf="@id/scroll_vie"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <HorizontalScrollView
         android:id="@+id/scroll_vie"
         android:layout_width="wrap_content"
@@ -27,7 +13,7 @@
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toTopOf="@id/tv_top_to_rv"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et_search">
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -103,16 +89,15 @@
         android:id="@+id/tv_top_to_rv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="8dp"
         android:text="Все:"
         android:textColor="@color/white"
         android:textSize="20sp"
-        android:layout_margin="8dp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/recycler_view"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/scroll_vie"
-        app:layout_constraintBottom_toTopOf="@id/recycler_view"/>
-
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/scroll_vie" />
 
 
     <androidx.recyclerview.widget.RecyclerView

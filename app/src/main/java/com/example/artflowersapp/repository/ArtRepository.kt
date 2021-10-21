@@ -1,10 +1,7 @@
 package com.example.artflowersapp.repository
 
 import androidx.lifecycle.LiveData
-import com.example.artflowersapp.data.ArtDao
-import com.example.artflowersapp.data.ArtModel
-import com.example.artflowersapp.data.BasketDao
-import com.example.artflowersapp.data.BasketModel
+import com.example.artflowersapp.data.*
 import javax.inject.Inject
 
 class ArtRepository @Inject constructor(private val artDao: ArtDao, private val basketDao: BasketDao) {
@@ -37,7 +34,7 @@ class ArtRepository @Inject constructor(private val artDao: ArtDao, private val 
         return artDao.getSimilarQuery(query)
     }
 
-    suspend fun updateLikes(artModel: ArtModel) {
-        artDao.updateLikes(artModel)
+    suspend fun updateLikes(likes: Likes) {
+        artDao.updateLike(likes)
     }
 }

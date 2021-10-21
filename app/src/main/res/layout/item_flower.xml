@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
+    android:animateLayoutChanges="true"
     android:padding="8dp"
     android:background="@color/backround_black">
 
@@ -102,12 +103,10 @@
         android:id="@+id/btn_add_to_basket"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
-        android:background="@drawable/bg_add"
+        android:background="@drawable/bg_add_two"
         android:text="@string/st_add_to"
         android:textSize="12sp"
         android:textColor="@color/white"
-        android:clickable="true"
-        android:focusable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/cardView"
         app:layout_constraintStart_toStartOf="@+id/cardView"

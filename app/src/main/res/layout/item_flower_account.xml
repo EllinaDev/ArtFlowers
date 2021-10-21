@@ -5,6 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/backround_black"
+    android:animateLayoutChanges="true"
     android:padding="8dp">
 
     <androidx.cardview.widget.CardView
@@ -37,7 +38,6 @@
                 android:id="@+id/iv_delete"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:background="#80090909"
                 android:src="@drawable/ic_baseline_delete_24_white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

@@ -11,6 +11,8 @@ import android.app.AlertDialog
 import android.content.Intent
 import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.NavHostFragment.findNavController
+import androidx.navigation.fragment.findNavController
 import com.example.artflowersapp.R
 import com.example.artflowersapp.data.ArtModel
 import com.example.artflowersapp.viewModel.SetNewItemVM
@@ -92,6 +94,7 @@ class SetNewItemFragment : Fragment() {
         builder.setPositiveButton(R.string.ad_yes_set_new) { dialogInterface, which ->
             viewModel.insertNewItem(artModel)
             Toast.makeText(context,"Продукт опубликован", Toast.LENGTH_LONG).show()
+            findNavController().navigate(R.id.personFragment)
         }
         //performing negative action
         builder.setNegativeButton(R.string.ad_no) { dialogInterface, which ->

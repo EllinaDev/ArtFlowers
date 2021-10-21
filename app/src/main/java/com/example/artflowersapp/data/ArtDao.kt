@@ -24,6 +24,11 @@ interface ArtDao {
     @Query("SELECT *FROM ArtModel WHERE composition MATCH :query")
     fun getSimilarQuery(query: String): List<ArtModel>
 
-    @Update
-    suspend fun updateLikes(artModel: ArtModel)
+    @Update(entity = ArtModel::class)
+    suspend fun updateLike(likes: Likes)
 }
+
+data class Likes(
+    val id: Int,
+    val likesCount: Int = 0
+)

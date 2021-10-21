@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.artflowersapp.data.ArtModel
+import com.example.artflowersapp.data.Likes
 import com.example.artflowersapp.repository.ArtRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -61,7 +62,8 @@ class ArtViewModel @Inject constructor(private val repository: ArtRepository): V
         }
     }
 
-    fun updateLikes(artModel: ArtModel?) = viewModelScope. launch(Dispatchers.IO) {
+    fun updateLikes(artModel: Likes?) = viewModelScope. launch(Dispatchers.IO) {
+        println("FOR UPDATE: $artModel")
         try {
             if (artModel != null) {
                 repository.updateLikes(artModel)

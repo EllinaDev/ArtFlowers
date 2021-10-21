@@ -17,11 +17,12 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.example.artflowersapp.data.ArtDao
+import com.example.artflowersapp.data.Likes
 import com.example.artflowersapp.viewModel.ArtViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class DetailFragment: Fragment(), HomeAdapter.FlowerListener, HomeAdapter.FlowerBasketListener {
+class DetailFragment : Fragment(), HomeAdapter.FlowerListener, HomeAdapter.FlowerBasketListener {
 
     private val args: DetailFragmentArgs by navArgs()
     private val viewModel: ArtViewModel by viewModels()
@@ -52,7 +53,7 @@ class DetailFragment: Fragment(), HomeAdapter.FlowerListener, HomeAdapter.Flower
         super.onViewCreated(view, savedInstanceState)
         binding.recyclerView.adapter = adapter
         getSimilar(composition = flower?.composition.toString())
-        viewModel.similarItemsLD.observe(viewLifecycleOwner,{
+        viewModel.similarItemsLD.observe(viewLifecycleOwner, {
             adapter.submitItems(it)
         })
 
@@ -61,28 +62,24 @@ class DetailFragment: Fragment(), HomeAdapter.FlowerListener, HomeAdapter.Flower
         binding.tvSize.text = flower?.size
         binding.tvDescription.text = flower?.description
         binding.tvPrice.text = flower?.price.toString()
-        binding.tvLikesCount.text = "${flower?.likesCount?:0}"
+        binding.tvLikesCount.text = "${flower?.likesCount ?: 0}"
         Glide.with(binding.root.context)
             .load(flower?.photoUri)
             .into(binding.ivPhoto)
 
         binding.btnAddToBasket.setOnClickListener {
-            if (flower != null){
+            if (flower != null) {
                 viewModel.addFlowerToBasket(flower!!)
-                Toast.makeText(context,"Продукт добавлен в корзину", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Продукт добавлен в корзину", Toast.LENGTH_SHORT).show()
             }
         }
 
         binding.ivLike.setOnClickListener {
-            if (flower?.likesCount != null) {
-                flower?.likesCount = 1
-            }else{
-                flower?.likesCount?.plus(1)
-            }
-            viewModel.updateLikes(flower)
+            val likes = flower?.likesCount ?: 0
+            viewModel.updateLikes(Likes(flower?.id ?: 0, likesCount = likes.plus(1)))
         }
 
-        binding.ivWhatsapp.setOnClickListener{
+        binding.ivWhatsapp.setOnClickListener {
             toWhatsapp()
         }
         binding.ivInstagram.setOnClickListener {
@@ -103,7 +100,7 @@ class DetailFragment: Fragment(), HomeAdapter.FlowerListener, HomeAdapter.Flower
         viewModel.addFlowerToBasket(flowers)
     }
 
-    private fun toWhatsapp(){
+    private fun toWhatsapp() {
         val phone = flower?.waNumber
         try {
             val packageManager = requireContext().packageManager
@@ -114,13 +111,13 @@ class DetailFragment: Fragment(), HomeAdapter.FlowerListener, HomeAdapter.Flower
             if (i.resolveActivity(packageManager) != null) {
                 requireContext().startActivity(i)
             }
-        }catch (e: Exception){
+        } catch (e: Exception) {
             e.printStackTrace()
             val appPackageName = "com.whatsapp"
         }
     }
 
-    private fun toInstagram(){
+    private fun toInstagram() {
         val uri = Uri.parse("http://instagram.com/_u/_smtva_")
         val likeIng = Intent(Intent.ACTION_VIEW, uri)
 
@@ -139,7 +136,7 @@ class DetailFragment: Fragment(), HomeAdapter.FlowerListener, HomeAdapter.Flower
         }
     }
 
-    private fun toPhone(){
+    private fun toPhone() {
         val number = flower?.telNumber
         val call = Uri.parse("tel:$number")
         val surf = Intent(Intent.ACTION_DIAL, call)
@@ -164,7 +161,6 @@ class DetailFragment: Fragment(), HomeAdapter.FlowerListener, HomeAdapter.Flower
         }
         viewModel.getSimilarQuery(query)
     }
-
 
 
 }

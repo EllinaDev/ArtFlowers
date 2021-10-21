@@ -81,7 +81,11 @@
     <fragment
         android:id="@+id/setNewItemFragment"
         android:name="com.example.artflowersapp.ui.SetNewItemFragment"
-        android:label="SetNewItemFragment" />
+        android:label="SetNewItemFragment" >
+        <action
+            android:id="@+id/action_setNewItemFragment_to_personFragment"
+            app:destination="@id/personFragment" />
+    </fragment>
     <fragment
         android:id="@+id/settingsAccountFragment"
         android:name="com.example.artflowersapp.ui.SettingsAccountFragment"

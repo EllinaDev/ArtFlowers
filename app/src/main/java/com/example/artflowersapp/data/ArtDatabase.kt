@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 
 
-@Database(entities = [ArtModel::class, BasketModel::class], version = 7, exportSchema = false)
+@Database(entities = [ArtModel::class, BasketModel::class], version = 8, exportSchema = false)
 @TypeConverters(FlowerTypeConverter::class)
 abstract class ArtDatabase : RoomDatabase() {
 

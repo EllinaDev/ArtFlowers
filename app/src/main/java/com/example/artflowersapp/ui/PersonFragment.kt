@@ -50,6 +50,7 @@ class PersonFragment: Fragment(), AccountAdapter.AccountFlowerListener, AccountA
         binding.recyclerView.adapter = adapter
         viewModel.flowersLiveData.observe(viewLifecycleOwner,{
             Log.d("TAG", "ALL: $it")
+            binding.tvFlowersSize.text = "${it.size}\nпубликаций"
             adapter.submitItems(it)
         })
         binding.ivItemAccount.setOnClickListener {

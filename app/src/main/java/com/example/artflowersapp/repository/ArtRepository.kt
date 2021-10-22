@@ -37,4 +37,8 @@ class ArtRepository @Inject constructor(private val artDao: ArtDao, private val 
     suspend fun updateLikes(likes: Likes) {
         artDao.updateLike(likes)
     }
+
+    suspend fun insertAll(artModel: List<ArtModel>) {
+        artDao.insertAll(artModel)
+    }
 }

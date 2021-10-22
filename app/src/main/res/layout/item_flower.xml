@@ -69,7 +69,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:maxLines="1"
-                    android:text=" сом"
+                    android:text="@string/st_som"
                     android:textColor="@color/white"
                     android:textSize="15sp"
                     app:layout_constraintStart_toEndOf="@id/tv_price"

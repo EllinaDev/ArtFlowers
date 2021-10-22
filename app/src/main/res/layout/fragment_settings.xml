@@ -13,29 +13,36 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:gravity="center"
-        android:text="Настройки"
+        android:text="@string/st_settings"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/iv_back"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_margin="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
         android:src="@drawable/ic_baseline_arrow_back_ios_new_24"
         app:layout_constraintBottom_toBottomOf="@id/tv_settings"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/tv_settings" />
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_back">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_settings">
@@ -44,7 +51,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="8dp"
-            android:text="Заказы"
+            android:text="@string/st_zakazy"
             android:textColor="@color/white"
             android:textSize="20sp" />
 
@@ -60,7 +67,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="8dp"
-            android:text="Темы"
+            android:text="@string/st_themes"
             android:textColor="@color/white"
             android:textSize="20sp" />
 
@@ -75,7 +82,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="8dp"
-            android:text="Настройки"
+            android:text="@string/st_settings"
             android:textColor="@color/white"
             android:textSize="20sp" />
 
@@ -91,7 +98,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="8dp"
-            android:text="Валюта"
+            android:text="@string/st_curency"
             android:textColor="@color/white"
             android:textSize="20sp" />
 
@@ -107,7 +114,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="8dp"
-            android:text="Язык"
+            android:text="@string/st_language"
             android:textColor="@color/white"
             android:textSize="20sp" />
 
@@ -122,7 +129,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="8dp"
-            android:text="О приложении"
+            android:text="@string/st_about_app"
             android:textColor="@color/white"
             android:textSize="20sp" />
 
@@ -137,7 +144,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="8dp"
-            android:text="Помощь"
+            android:text="@string/st_help"
             android:textColor="@color/white"
             android:textSize="20sp" />
 
@@ -150,6 +157,8 @@
 
 
     </LinearLayout>
+
+    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

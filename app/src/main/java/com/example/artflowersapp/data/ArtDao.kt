@@ -12,6 +12,9 @@ interface ArtDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertNewItem(artModel: ArtModel)
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertAll(artModel: List<ArtModel>)
+
     @Query("SELECT *FROM ArtModel WHERE name LIKE :query")
     suspend fun search(query: String): List<ArtModel>
 

@@ -16,7 +16,6 @@ import com.example.artflowersapp.databinding.FragmentDetailBinding
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
-import com.example.artflowersapp.data.ArtDao
 import com.example.artflowersapp.data.Likes
 import com.example.artflowersapp.viewModel.ArtViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -52,7 +51,7 @@ class DetailFragment : Fragment(), HomeAdapter.FlowerListener, HomeAdapter.Flowe
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.recyclerView.adapter = adapter
-        getSimilar(composition = flower?.composition.toString())
+        getSimilar(flower)
         viewModel.similarItemsLD.observe(viewLifecycleOwner, {
             adapter.submitItems(it)
         })
@@ -101,7 +100,7 @@ class DetailFragment : Fragment(), HomeAdapter.FlowerListener, HomeAdapter.Flowe
     }
 
     private fun toWhatsapp() {
-        val phone = flower?.waNumber
+        val phone = "0709119919"
         try {
             val packageManager = requireContext().packageManager
             val i = Intent(Intent.ACTION_VIEW)
@@ -118,7 +117,7 @@ class DetailFragment : Fragment(), HomeAdapter.FlowerListener, HomeAdapter.Flowe
     }
 
     private fun toInstagram() {
-        val uri = Uri.parse("http://instagram.com/_u/_smtva_")
+        val uri = Uri.parse("http://instagram.com/_u/artflowers_bishkek")
         val likeIng = Intent(Intent.ACTION_VIEW, uri)
 
         likeIng.setPackage("com.instagram.android")
@@ -137,14 +136,14 @@ class DetailFragment : Fragment(), HomeAdapter.FlowerListener, HomeAdapter.Flowe
     }
 
     private fun toPhone() {
-        val number = flower?.telNumber
+        val number = "0778103750"
         val call = Uri.parse("tel:$number")
         val surf = Intent(Intent.ACTION_DIAL, call)
         startActivity(surf)
     }
 
-    fun getSimilar(composition: String) {
-        val withoutNums = composition.replace("[0-9]".toRegex(), "")
+    fun getSimilar(flower: ArtModel?) {
+        /*val withoutNums = composition.replace("[0-9]".toRegex(), "")
         var words = withoutNums.split(" ")
         var realWords = arrayListOf<String>()
         words.forEach {
@@ -158,8 +157,8 @@ class DetailFragment : Fragment(), HomeAdapter.FlowerListener, HomeAdapter.Flowe
             if (i != realWords.lastIndex) {
                 query += " OR "
             }
-        }
-        viewModel.getSimilarQuery(query)
+        }*/
+        viewModel.getSimilarQuery("", flower?.categoryId ?: -1, flower?.id ?: 0)
     }
 
 

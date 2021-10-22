@@ -46,9 +46,10 @@ class ArtViewModel @Inject constructor(private val repository: ArtRepository): V
 
     }
 
-    fun getSimilarQuery( query: String) = viewModelScope.launch(Dispatchers.IO) {
+    fun getSimilarQuery( query: String, categoryId: Int, id: Int) = viewModelScope.launch(Dispatchers.IO) {
         try {
-            _similarItemsLD.postValue(repository.getSimilarQuery(query))
+            _similarItemsLD.postValue(repository.getSimilarQuery(categoryId, id))
+            println(repository.getSimilarQuery(categoryId, id))
         } catch (e:Exception) {
             e.printStackTrace()
         }

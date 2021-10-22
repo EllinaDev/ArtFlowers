@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.artflowersapp.R
 import com.example.artflowersapp.data.ArtModel
 import com.example.artflowersapp.databinding.ItemFlowerAccountBinding
 
@@ -31,6 +32,7 @@ class AccountAdapter(private val deleteListener: AccountDeleteListener, private 
         fun bind(flowers: ArtModel) {
             binding.tvName.text = flowers.name
             binding.tvPrice.text = flowers.price.toString()
+
             Glide.with(binding.root.context)
                 .load(flowers.photoUri)
                 .into(binding.ivPhoto)

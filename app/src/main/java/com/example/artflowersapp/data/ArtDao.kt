@@ -24,8 +24,8 @@ interface ArtDao {
     @Delete
     fun deleteItem(artModel: ArtModel)
 
-    @Query("SELECT *FROM ArtModel WHERE composition MATCH :query")
-    fun getSimilarQuery(query: String): List<ArtModel>
+    @Query("SELECT *FROM ArtModel WHERE categoryId = :categoryId AND id != :id")
+    fun getSimilarQuery(categoryId: Int, id: Int): List<ArtModel>
 
     @Update(entity = ArtModel::class)
     suspend fun updateLike(likes: Likes)

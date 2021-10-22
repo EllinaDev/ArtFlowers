@@ -4,15 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.example.artflowersapp.R
 import com.example.artflowersapp.adapter.HomeAdapter
 import com.example.artflowersapp.data.ArtModel
 import com.example.artflowersapp.databinding.FragmentHomeBinding
-import com.example.artflowersapp.utils.FakeData
 import com.example.artflowersapp.viewModel.ArtViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -53,8 +50,6 @@ class HomeFragment : Fragment(), HomeAdapter.FlowerListener, HomeAdapter.FlowerB
 
     private fun searchHome(){
     }
-
-
 
 }
 

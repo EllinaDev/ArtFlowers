@@ -19,7 +19,7 @@ class SplashScreenActivity : AppCompatActivity() {
     private val binding: ActivitySplashScreenBinding get() = _binding!!
     private val viewModel: SplashVM by viewModels()
     // After 3000 mileSeconds / 3 seconds your next activity will display.
-    private var TIME_OUT:Long = 3000
+    private var TIME_OUT:Long = 2000
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
